@@ -22,6 +22,13 @@ namespace Tesis003.BaseDatos
         private string stringConexion = "data source = 192.168.56.101; initial catalog = DBVACARI; user id = sa; password = Tesis2018";
         //private string stringConexion = "data source = localhost; initial catalog = DBVACARI; user id = sa; password = Tesis2018";
 
+
+        //Constructor vacio
+        public ConexionBD()
+        {
+
+        }
+
         //Se ejecuta una sentencia SQL del tipo SELECT en la base de datos.
         public DataTable ComandoConsulta(SqlCommand sentenciaSQL)
         {

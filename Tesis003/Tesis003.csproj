@@ -127,7 +127,17 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="BaseDatos\ConexionBD.cs" />
+    <Compile Include="Controllers\CitaController.cs" />
+    <Compile Include="Controllers\ContabilidadController.cs" />
+    <Compile Include="Controllers\EnfermeriaController.cs" />
+    <Compile Include="Controllers\HistoriaClinicaController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\IngresoController.cs" />
+    <Compile Include="Controllers\InventarioController.cs" />
+    <Compile Include="Controllers\LaboratorioController.cs" />
+    <Compile Include="Controllers\PacienteController.cs" />
+    <Compile Include="Controllers\PersonalController.cs" />
+    <Compile Include="Controllers\ProcedimientoController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -169,11 +179,35 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Ingreso\Ingreso.cshtml" />
+    <Content Include="Views\Ingreso\Presentacion.cshtml" />
+    <Content Include="Views\Cita\IngresarCita.cshtml" />
+    <Content Include="Views\Cita\ListarCita.cshtml" />
+    <Content Include="Views\Contabilidad\IngresoContabilidad.cshtml" />
+    <Content Include="Views\Contabilidad\EgresoContabilidad.cshtml" />
+    <Content Include="Views\Contabilidad\InformeContabilidad.cshtml" />
+    <Content Include="Views\Contabilidad\PagoPersonal.cshtml" />
+    <Content Include="Views\Enfermeria\ListarEnfermeria.cshtml" />
+    <Content Include="Views\Enfermeria\RegistrarSignosVitales.cshtml" />
+    <Content Include="Views\Inventario\IngresarMostrarInventario.cshtml" />
+    <Content Include="Views\Laboratorio\IngresarLaboratorio.cshtml" />
+    <Content Include="Views\Laboratorio\ListarLaboratorio.cshtml" />
+    <Content Include="Views\Laboratorio\MostrarLaboratorio.cshtml" />
+    <Content Include="Views\Laboratorio\ModificarLaboratorio.cshtml" />
+    <Content Include="Views\Paciente\IngresarPaciente.cshtml" />
+    <Content Include="Views\Paciente\ListarPaciente.cshtml" />
+    <Content Include="Views\Paciente\MostrarPaciente.cshtml" />
+    <Content Include="Views\Paciente\ActualizarPaciente.cshtml" />
+    <Content Include="Views\Personal\IngresarPersonal.cshtml" />
+    <Content Include="Views\Personal\ListarPersonal.cshtml" />
+    <Content Include="Views\Personal\ActualizarPersonal.cshtml" />
+    <Content Include="Views\Procedimiento\IngresarProcedimiento.cshtml" />
+    <Content Include="Views\Procedimiento\ListarProcedimiento.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
-    <Folder Include="Views\Personal\" />
+    <Folder Include="Views\HistoriaClinica\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

@@ -18,5 +18,11 @@ namespace Tesis003.Models
 
         //Contrasena del usuario
         public string contrasena { get; set; }
+
+        //Contrasena del usuario
+        public int cargo { get; set; }
+
+        //Identificador del usuario
+        public int identificador { get; set; }
     }
 }

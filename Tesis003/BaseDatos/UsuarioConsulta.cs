@@ -40,7 +40,29 @@ namespace Tesis003.BaseDatos
             DataTable tablaDatos = this.conexion.ComandoConsulta(sentenciaSql);
 
             usuarioResultado.usuario = tablaDatos.Rows[0].Field<string>("Usuario");
-            usuarioResultado.usuario = tablaDatos.Rows[0].Field<string>("Contrasena");
+            usuarioResultado.contrasena = tablaDatos.Rows[0].Field<string>("Contrasena");
+
+            return usuarioResultado;
+        }
+
+        //Funcion para obtener el usuario, el cargo y el identificador de la base datos, los retorna en un objeto UsuarioModel
+        public UsuarioModel obtenerInformacionUsuario(string usuario)
+        {
+            UsuarioModel usuarioResultado = new UsuarioModel();
+
+            string sql = "SELECT  PersonalID, Usuario, Cargo " +
+                         "FROM Personal " +
+                         "WHERE Usuario like '@Usuario' " +
+                         "LIMIT 0,1";
+
+            SqlCommand sentenciaSql = new SqlCommand(sql);
+            sentenciaSql.Parameters.AddWithValue("@Usuario", usuario);
+
+            DataTable tablaDatos = this.conexion.ComandoConsulta(sentenciaSql);
+
+            usuarioResultado.identificador = tablaDatos.Rows[0].Field<int>("PersonalID");
+            usuarioResultado.usuario = tablaDatos.Rows[0].Field<string>("Usuario");
+            usuarioResultado.cargo = tablaDatos.Rows[0].Field<int>("Cargo");
 
             return usuarioResultado;
         }

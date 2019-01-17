@@ -30,16 +30,16 @@ namespace Tesis003.BaseDatos
         }
 
         //Se ejecuta una sentencia SQL del tipo SELECT en la base de datos.
-        public DataTable ComandoConsulta(SqlCommand sentenciaSQL)
+        public DataTable ComandoConsulta(string sentenciaSQL)
         {
             DataTable tablaDatos = new DataTable();
             try
             {
-                sentenciaSQL.Connection = new SqlConnection(this.stringConexion);
-                sentenciaSQL.Connection.Open();
-                SqlDataAdapter dataAdapter = new SqlDataAdapter(sentenciaSQL.CommandText, sentenciaSQL.Connection);                
+                SqlConnection conexion = new SqlConnection(this.stringConexion);
+                conexion.Open();
+                SqlDataAdapter dataAdapter = new SqlDataAdapter(sentenciaSQL, conexion);                
                 dataAdapter.Fill(tablaDatos);
-                sentenciaSQL.Connection.Close();
+                conexion.Close();
             }
             catch (Exception e)
             {

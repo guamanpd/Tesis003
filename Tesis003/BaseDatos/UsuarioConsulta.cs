@@ -24,39 +24,33 @@ namespace Tesis003.BaseDatos
 
         }
 
-        //Funcion para obtener el usuario y la contrasena de la base datos, los retorna en un objeto UsuarioModel
-        public UsuarioModel obtenerUsuario(string usuario)
+        //Funcion para obtener el identificardor, el usuario y la contrasena de la base datos, los retorna en un objeto UsuarioModel
+        public UsuarioModel obtenerInformacionIngreso(string usuario)
         {
             UsuarioModel usuarioResultado = new UsuarioModel();
 
-            string sql = "SELECT Usuario, Contrasena "+
-                         "FROM Personal "+
-                         "WHERE Usuario like '@Usuario' "+
-                         "LIMIT 0,1";
-
-            SqlCommand sentenciaSql = new SqlCommand(sql);
-            sentenciaSql.Parameters.AddWithValue("@Usuario",usuario);
+            string sentenciaSql = "SELECT TOP(1) PersonalID, Usuario, Contrasena, Cargo " +
+                                  "FROM Personal " +
+                                  $"WHERE Usuario like '{usuario}' ";
 
             DataTable tablaDatos = this.conexion.ComandoConsulta(sentenciaSql);
 
+            usuarioResultado.identificador = tablaDatos.Rows[0].Field<int>("PersonalID");
             usuarioResultado.usuario = tablaDatos.Rows[0].Field<string>("Usuario");
             usuarioResultado.contrasena = tablaDatos.Rows[0].Field<string>("Contrasena");
+            usuarioResultado.cargo = tablaDatos.Rows[0].Field<int>("Cargo");
 
             return usuarioResultado;
         }
 
         //Funcion para obtener el usuario, el cargo y el identificador de la base datos, los retorna en un objeto UsuarioModel
-        public UsuarioModel obtenerInformacionUsuario(string usuario)
+        public UsuarioModel obtenerInformacionAdicional(string usuario)
         {
             UsuarioModel usuarioResultado = new UsuarioModel();
 
-            string sql = "SELECT  PersonalID, Usuario, Cargo " +
-                         "FROM Personal " +
-                         "WHERE Usuario like '@Usuario' " +
-                         "LIMIT 0,1";
-
-            SqlCommand sentenciaSql = new SqlCommand(sql);
-            sentenciaSql.Parameters.AddWithValue("@Usuario", usuario);
+            string sentenciaSql = "SELECT TOP(1) PersonalID, Usuario, Cargo " +
+                                  "FROM Personal " +
+                                  $"WHERE Usuario like '{usuario}' ";
 
             DataTable tablaDatos = this.conexion.ComandoConsulta(sentenciaSql);
 

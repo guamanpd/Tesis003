@@ -14,7 +14,7 @@ namespace Tesis003.Controllers
             return View();
         }
 
-		public ActionResult ListarPaciente()
+		public ActionResult BuscarPaciente()
 		{
 			return View();
 		}

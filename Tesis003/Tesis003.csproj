@@ -228,7 +228,7 @@
     <Content Include="Views\Laboratorio\MostrarLaboratorio.cshtml" />
     <Content Include="Views\Laboratorio\ModificarLaboratorio.cshtml" />
     <Content Include="Views\Paciente\IngresarPaciente.cshtml" />
-    <Content Include="Views\Paciente\ListarPaciente.cshtml" />
+    <Content Include="Views\Paciente\BuscarPaciente.cshtml" />
     <Content Include="Views\Paciente\MostrarPaciente.cshtml" />
     <Content Include="Views\Paciente\ActualizarPaciente.cshtml" />
     <Content Include="Views\Personal\IngresarPersonal.cshtml" />

@@ -129,6 +129,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="BaseDatos\ConexionBD.cs" />
+    <Compile Include="BaseDatos\UsuarioConsulta.cs" />
     <Compile Include="Controllers\CitaController.cs" />
     <Compile Include="Controllers\ContabilidadController.cs" />
     <Compile Include="Controllers\EnfermeriaController.cs" />

@@ -1,8 +1,142 @@
 ﻿
 @{
-    ViewBag.Title = "IngresarLaboratorio";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+	ViewBag.Title = "IngresarLaboratorio";
+	Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>IngresarLaboratorio</h2>
+<h2 style="text-align:center">Pedido de Laboratorio Clinico</h2>
+<br />
+
+<div class="row">
+	<div class="col-xl-5">
+		<p>
+			<label>Nombre Completo</label>
+			<br />
+			<input class="col-xl required" style="text-align:left; border-radius:0.3rem; width:100%; height:40px;" />
+		</p>
+	</div>
+	<div class="col-xl-2">
+		<p>
+			<label>Cedula</label>
+			<br />
+			<input class="col-xl required" style="text-align:left; border-radius:0.3rem; width:100%; height:40px;" />
+		</p>
+	</div>
+	<div class="col-xl-2">
+		<p>
+			<label>Fecha</label>
+			<br />
+			<input class="col-xl required" type="date" style="text-align:left; border-radius:0.3rem; width:1%00; height:40px;" />
+		</p>
+	</div>
+	<div class="col-xl-2">
+		<p>
+			<label>Codigo</label>
+			<input class="col-xl required" style="text-align:left; border-radius:0.3rem; width:100%; height:40px;" />
+		</p>
+	</div>
+</div>
+
+<div class="row">
+	<div class="col-md-3">
+		<h3>Hermatología</h3>
+		<input type="checkbox" name="hematologia" value="BiometriaHematica" /> Biometria Hemática <br>
+		<input type="checkbox" name="hematologia" value="FormulaLeucocitaria" /> Fórmula Leucocitaria <br>
+		<input type="checkbox" name="hematologia" value="NumeroLeucocitos" /> Numero Leucocitos <br>
+		<input type="checkbox" name="hematologia" value="Sedimentacion" /> Sedimentación <br>
+		<input type="checkbox" name="hematologia" value="GrupoSanguineoRh" /> Grupo Sanguineo Rh <br>
+		<input type="checkbox" name="hematologia" value="CoombsDirecto" /> Coombs Directo <br>
+		<input type="checkbox" name="hematologia" value="CoombsIndirecto" /> Coombs Indirecto <br>
+		<input type="checkbox" name="hematologia" value="Reticulocitos" /> Reticulocitos <br>
+		<input type="checkbox" name="hematologia" value="CelulasLE" /> Celulas L.E. <br>
+		<input type="checkbox" name="hematologia" value="Hematozoario" /> Hematozoario <br>
+	</div>
+	<div class="col-md-3">
+		<h3>Coagulación</h3>
+		<input type="checkbox" name="coagulacion" value="TiempoCoagulacion" /> Tiempo de Coagulación <br>
+		<input type="checkbox" name="coagulacion" value="TiempoHemorragia" /> Tiempo de Hemorragia <br>
+		<input type="checkbox" name="coagulacion" value="RetracciónCoagulo" /> Retracción del Cóagulo <br>
+		<input type="checkbox" name="coagulacion" value="RetracciónCoagulo" /> Retracción del Cóagulo <br>
+		<input type="checkbox" name="coagulacion" value="Fibrinogeno" /> Fibrinogeno <br>
+	</div>
+	<div class="col-md-3">
+		<h3>Enzimas</h3>
+		<input type="checkbox" name="enzimas" value="TGO" /> TGO <br>
+		<input type="checkbox" name="enzimas" value="TGP" /> TGP <br>
+		<input type="checkbox" name="enzimas" value="FosfatasaAlcalina" /> FosfatasaAlcalina <br>
+		<input type="checkbox" name="enzimas" value="GammaGT" /> Gamma GT <br>
+		<input type="checkbox" name="enzimas" value="Amilasa" /> Amilasa <br>
+		<input type="checkbox" name="enzimas" value="Lipasa" /> Lipasa <br>
+		<input type="checkbox" name="enzimas" value="FosfatasaAcida" /> Fosfatasa Ácida <br>
+		<input type="checkbox" name="enzimas" value="DeshidrogenasaLactica" /> Deshidrogenasa Láctica <br>
+		<input type="checkbox" name="enzimas" value="CPK" /> CPK <br>
+		<input type="checkbox" name="enzimas" value="CKMR" /> CK - MR <br>
+		<input type="checkbox" name="enzimas" value="TroponinaI" /> Troponina I <br>
+		<input type="checkbox" name="enzimas" value="Colinesterasa" /> Colinesterasa <br>
+	</div>
+</div>
+<div class="row">
+	<div class="col-md-3">
+		<h3>Química</h3>
+		<input type="checkbox" name="quimica" value="GlucosaAyunas" /> GlucosaAyunas <br>
+		<input type="checkbox" name="quimica" value="GlucosaPostPrandial" /> Glucosa Post - Prandial <br>
+		<input type="checkbox" name="quimica" value="Glucosa" /> Glucosa <br>
+		<input type="checkbox" name="quimica" value="TestOSullivan" /> Test O` Sullivan <br>
+		<input type="checkbox" name="quimica" value="Urea" /> Urea <br>
+		<input type="checkbox" name="quimica" value="Creatinina" /> Creatinina <br>
+		<input type="checkbox" name="quimica" value="AcidoUrico" /> Ácido Úrico <br>
+		<input type="checkbox" name="quimica" value="Colesterol" /> Colesterol <br>
+		<input type="checkbox" name="quimica" value="HDLLDL" /> HDL LDL <br>
+		<input type="checkbox" name="quimica" value="Trigliceridos" /> Trigliceridos <br>
+		<input type="checkbox" name="quimica" value="VLDL" /> VLDL <br>
+		<input type="checkbox" name="quimica" value="APOA" /> APO A <br>
+		<input type="checkbox" name="quimica" value="APOB" /> APO B <br>
+		<input type="checkbox" name="quimica" value="LipidosTotales" /> Lípidos Totales <br>
+		<input type="checkbox" name="quimica" value="Fosfolipidos" /> Fosfolípidos <br>
+		<input type="checkbox" name="quimica" value="Bilirrubinas" /> Bilirrubinas <br>
+		<input type="checkbox" name="quimica" value="ProteinasTotales" /> Proteínas Totales <br>
+		<input type="checkbox" name="quimica" value="AlbuminasGlubolinas" /> Albuminas Glubolinas <br>
+		<input type="checkbox" name="quimica" value="HemoglobinaGlicosilada" /> Hemoglobina Glicosilada <br>
+		<input type="checkbox" name="quimica" value="HierroSerico" /> Hierro Serico <br>
+		<input type="checkbox" name="quimica" value="Tranferrina" /> Tranferrina <br>
+		<input type="checkbox" name="quimica" value="Ferritina" /> Ferritina <br>
+		<input type="checkbox" name="quimica" value="VitaminaB12" /> Vitamina B12 <br>
+		<input type="checkbox" name="quimica" value="AcidoFolico" /> Ácido Fólico <br>
+		<input type="checkbox" name="quimica" value="Insulina" /> Insulina <br>
+		<input type="checkbox" name="quimica" value="PeptidoC" /> Peptido C <br>
+	</div>
+	<div class="col-md-3">
+		<h3>Hormonas</h3>
+		<input type="checkbox" name="hormonas" value="BetaHCG" /> Beta HCG <br>
+		<input type="checkbox" name="hormonas" value="BetaHCGCualitativo" /> Beta HCG Cualitativo <br>
+		<input type="checkbox" name="hormonas" value="BetaHCGCuantitativo" /> Beta HCG Cuantitativo <br>
+		<input type="checkbox" name="hormonas" value="LH" /> LH <br>
+		<input type="checkbox" name="hormonas" value="FSH" /> FSH <br>
+		<input type="checkbox" name="hormonas" value="Estrogeno" /> Estrógeno <br>
+		<input type="checkbox" name="hormonas" value="Progesterona" /> Progesterona <br>
+		<input type="checkbox" name="hormonas" value="Prolactina" /> Prolactina <br>
+		<input type="checkbox" name="hormonas" value="Cortisolam" /> Cortisol a.m. <br>
+		<input type="checkbox" name="hormonas" value="Cortisolpm" /> Cortisol p.m. <br>
+		<input type="checkbox" name="hormonas" value="Testosterona" /> Testosterona <br>
+		<input type="checkbox" name="hormonas" value="HormonaCrecimiento" /> Hormona de Crecimiento(HGH) <br>
+		<input type="checkbox" name="hormonas" value="DHEAS" /> DHEAS <br>
+		<input type="checkbox" name="hormonas" value="T3" /> T3 <br>
+		<input type="checkbox" name="hormonas" value="FT4" /> FT4 <br>
+		<input type="checkbox" name="hormonas" value="TSH" /> TSH <br>
+	</div>
+</div>
+
+<br />
+<div>
+	<label>Total</label>
+	<input />
+</div>
+
+<br />
+<div class="text-center">
+	<button style="background-color:darkturquoise; border-bottom-color:darkturquoise;color:white; border-radius:0.3rem; width:200px; height:40px; cursor: pointer">CANCELAR</button>
+	<button style="background-color:darkturquoise; border-bottom-color:darkturquoise;color:white; border-radius:0.3rem; width:200px; height:40px; cursor: pointer">GUARDAR</button>
+	<button style="background-color:darkturquoise; border-bottom-color:darkturquoise;color:white; border-radius:0.3rem; width:200px; height:40px; cursor: pointer">HISTORIA CLINICA</button>
+	<button style="background-color:darkturquoise; border-bottom-color:darkturquoise;color:white; border-radius:0.3rem; width:200px; height:40px; cursor: pointer">MAS</button>
+</div>
 

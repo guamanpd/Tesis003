@@ -1,8 +1,92 @@
 ﻿
 @{
-    ViewBag.Title = "IngresarProcedimiento";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+	ViewBag.Title = "IngresarProcedimiento";
+	Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>IngresarProcedimiento</h2>
+<h2 style="text-align:center">Ingresar Procedimiento</h2>
+<br />
+
+<div class="row">
+	<div class="col-xl-6">
+		<p>
+			<label>Nombre Completo</label>
+			<br />
+			<input class="col-xl required" style="text-align:left; border-radius:0.3rem; width:100%; height:40px;" />
+		</p>
+	</div>
+	<div class="col-xl-3">
+		<p>
+			<label>Cedula</label>
+			<br />
+			<input style="text-align:left; border-radius:0.3rem; width:100%; height:40px;" />
+		</p>
+	</div>
+	<div class="col-xl-3">
+		<p>
+			<label>Fecha</label>
+			<br />
+			<input type="date" style="text-align:left; border-radius:0.3rem; width:100%; height:40px;" />
+		</p>
+	</div>
+</div>
+
+<div class="row">
+	<div class="col-xl-3">
+		<p>
+			<label>Especialidad</label>
+			<br />
+			<select name="Especialidad" class="col-xl required" style="text-align:left; border-radius:0.3rem; width:100%; height:40px;">
+				<option value="especialidad a">PEDIATRIA</option>
+				<option value="especialidad b">MEDICINA GENERAL</option>
+				<option value="especialidad c">TRAHUMATOLOGO</option>
+			</select>
+		</p>
+	</div>
+	<div class="col-xl-3">
+		<p>
+			<label>Procedimiento</label>
+			<br />
+			<select name="Procedimiento" class="col-xl required" style="text-align:left; border-radius:0.3rem; width:100%; height:40px;">
+				<option value="procedimeinto a">A</option>
+				<option value="procedimeinto b">B</option>
+				<option value="procedimeinto c">C</option>
+			</select>
+		</p>
+	</div>
+	<div class="col-xl-3">
+		<label>Valor</label>
+		<br />
+		<input class="col-xl required" style="text-align:left; border-radius:0.3rem; width:100%; height:40px;" />
+	</div>
+	<div class="col-xl-3">
+		<br />
+		<button style="background-color:darkturquoise; border-bottom-color:darkturquoise;color:white; border-radius:0.3rem; width:200px; height:40px; cursor: pointer">GUARDAR</button>
+	</div>
+</div>
+<div>
+	<table class="table">
+		<tr>
+			<th scope="col">Especialidad</th>
+			<th scope="col">Procedimiento</th>
+			<th scope="col">Valor</th>
+		</tr>
+		<tr>
+			<td scope="col">AAAAAAAAAA</td>
+			<td scope="col">AAAAAAAAAA</td>
+			<td scope="col">99.99</td>
+		</tr>
+	</table>
+</div>
+<br />
+<div>
+	<label>Total</label>
+	<input style="text-align:left; border-radius:0.3rem; width:200px; height:40px;" />
+</div>
+
+<br />
+<div class="text-center">
+	<button style="background-color:darkturquoise; border-bottom-color:darkturquoise;color:white; border-radius:0.3rem; width:200px; height:40px; cursor: pointer">CANCELAR</button>
+	<button style="background-color:darkturquoise; border-bottom-color:darkturquoise;color:white; border-radius:0.3rem; width:200px; height:40px; cursor: pointer">MAS</button>
+</div>
 

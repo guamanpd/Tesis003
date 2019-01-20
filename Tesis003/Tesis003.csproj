@@ -246,10 +246,12 @@
     <Content Include="Scripts\popper.js.map" />
     <Content Include="Scripts\popper-utils.min.js.map" />
     <Content Include="Scripts\popper-utils.js.map" />
+    <Content Include="Views\HistoriaClinica\DatosPersonales.cshtml" />
+    <Content Include="Views\HistoriaClinica\Antecedentes.cshtml" />
+    <Content Include="Views\HistoriaClinica\Consulta.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\HistoriaClinica\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

@@ -21,5 +21,9 @@ namespace Tesis003.Controllers
 		{
 			return View();
 		}
+		public ActionResult Diagnostico()
+		{
+			return View();
+		}
 	}
 }

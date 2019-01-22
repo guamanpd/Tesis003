@@ -249,6 +249,8 @@
     <Content Include="Views\HistoriaClinica\DatosPersonales.cshtml" />
     <Content Include="Views\HistoriaClinica\Antecedentes.cshtml" />
     <Content Include="Views\HistoriaClinica\Consulta.cshtml" />
+    <Content Include="Views\HistoriaClinica\Diagnostico.cshtml" />
+    <Content Include="Views\Personal\GestionarServiciosPersonal.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

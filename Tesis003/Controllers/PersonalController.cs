@@ -23,5 +23,10 @@ namespace Tesis003.Controllers
 		{
 			return View();
 		}
+
+		public ActionResult GestionarServiciosPersonal()
+		{
+			return View();
+		}
 	}
 }

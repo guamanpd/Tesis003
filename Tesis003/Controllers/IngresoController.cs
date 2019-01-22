@@ -11,7 +11,7 @@ namespace Tesis003.Controllers
     public class IngresoController : Controller
     {
         //Consultas a la base de datos sobre el usuario
-        UsuarioConsulta usuarioBD = new UsuarioConsulta();
+        PersonalConsulta usuarioBD = new PersonalConsulta();
 
         /**********
          * Metodo:GET
@@ -30,7 +30,7 @@ namespace Tesis003.Controllers
          * Redirige a la pantalla de presentacion si todo se valida al usuario
         **********/
         [HttpPost]
-        public ActionResult Ingreso(UsuarioModel usuarioParametro)
+        public ActionResult Ingreso(PersonalModel usuarioParametro)
         {
             /*UsuarioModel usuarioIngreso = usuarioBD.obtenerInformacionIngreso(usuarioParametro.usuario);
             if (!string.IsNullOrEmpty(usuarioParametro.usuario) && !string.IsNullOrEmpty(usuarioParametro.contrasena) && usuarioIngreso.contrasena.Equals(usuarioParametro.contrasena))

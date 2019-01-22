@@ -1,4 +1,4 @@
-﻿
+﻿@model List<Tesis003.Models.PersonalModel>
 @{
 	ViewBag.Title = "ListarPersonal";
 	Layout = "~/Views/Shared/_Layout.cshtml";
@@ -17,14 +17,15 @@
 			<th scope="col"></th>
 			<th scope="col"></th>
 		</tr>
+        @foreach (var usario in Model)
 		{
 			<tr>
-				<td scope="col"></td>
-				<td scope="col"></td>
-				<td scope="col"></td>
+				<td scope="col">@usario.nombre</td>
+				<td scope="col">@usario.telefono</td>
+				<td scope="col">@usario.cargoNombre</td>
 				<td scope="col">
-					<form action="Modificar" method="post">
-						<button name="IdPersonal" style="background-color:darkturquoise; border-bottom-color:darkturquoise;color:white; border-radius:0.3rem; width:35px; height:30px; cursor: pointer" type="submit">
+					<form action="ActualizarPersonal" method="post">
+						<button name="identificador" value="@usario.identificador" style="background-color:darkturquoise; border-bottom-color:darkturquoise;color:white; border-radius:0.3rem; width:35px; height:30px; cursor: pointer" type="submit">
 							<i class="fas fa-edit"></i>
 						</button>
 					</form>
@@ -35,7 +36,7 @@
 </div>
 <br />
 <div class="text-center">
-	<button style="background-color:darkturquoise; border-bottom-color:darkturquoise;color:white; border-radius:0.3rem; width:200px; height:40px; cursor: pointer" onclick="location='../Personal/Ingresar'">Nuevo</button>
+	<button style="background-color:darkturquoise; border-bottom-color:darkturquoise;color:white; border-radius:0.3rem; width:200px; height:40px; cursor: pointer" onclick="location='../Personal/IngresarPersonal'">Nuevo</button>
 	<!--<button style="background-color:darkturquoise; border-bottom-color:darkturquoise;color:white; border-radius:0.3rem; width:200px; height:40px; cursor: pointer" onclick="location='../Personal/Modificar'">Modificar</button> /-->
 </div>
 

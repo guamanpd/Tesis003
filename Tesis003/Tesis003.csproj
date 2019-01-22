@@ -217,7 +217,7 @@
     <Content Include="Views\Contabilidad\InformeContabilidad.cshtml" />
     <Content Include="Views\Contabilidad\PagoPersonal.cshtml" />
     <Content Include="Views\Enfermeria\ListarEnfermeria.cshtml" />
-    <Content Include="Views\Enfermeria\RegistrarSignosVitales.cshtml" />
+    <Content Include="Views\Enfermeria\IngresarSignosVitales.cshtml" />
     <Content Include="Views\Inventario\IngresarMostrarInventario.cshtml" />
     <Content Include="Views\Laboratorio\IngresarLaboratorio.cshtml" />
     <Content Include="Views\Laboratorio\ListarLaboratorio.cshtml" />

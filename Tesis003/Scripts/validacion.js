@@ -90,7 +90,7 @@ function validarFormulario() {
 function validarFormularioSimple() {
     jQuery.validator.messages.required = 'Esta campo es obligatorio.';
     jQuery.validator.messages.number = 'Esta campo debe ser num&eacute;rico.';
-    $("#IngresarServicioPersonal").validate();
+    $("#IngresarServicio").validate();
     $("#IngresarServicioPersonalServicio").validate();
     $("#IngresarSignosVitales").validate();
 }

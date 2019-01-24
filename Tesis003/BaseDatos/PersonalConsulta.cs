@@ -9,7 +9,7 @@ using Tesis003.Models;
 namespace Tesis003.BaseDatos
 {
     /**********
-     * Objeto utilziada para consultar los datos del usuario y almacenarlos en un objeto UsuarioModel
+     * Objeto utilziada para consultar los datos del usuario y almacenarlos en un objeto PersonalModel
      * Base: DBVACARI
      * Tabla: Personal
     **********/
@@ -24,7 +24,7 @@ namespace Tesis003.BaseDatos
 
         }
 
-        //Funcion para obtener el identificardor, el usuario y la contrasena de la base datos, los retorna en un objeto UsuarioModel
+        //Funcion para obtener el identificardor, el usuario y la contrasena de la base datos, los retorna en un objeto PersonalModel
         public PersonalModel obtenerInformacionIngreso(string usuario)
         {
             PersonalModel usuarioResultado = new PersonalModel();
@@ -42,7 +42,7 @@ namespace Tesis003.BaseDatos
             return usuarioResultado;
         }
 
-        //Funcion para obtener el usuario, el cargo y el identificador de la base datos, los retorna en un objeto UsuarioModel
+        //Funcion para obtener el usuario, el cargo y el identificador de la base datos, los retorna en un objeto PersonalModel
         public PersonalModel obtenerInformacionUsuario(int identificador)
         {
             PersonalModel usuarioResultado = new PersonalModel();
@@ -119,6 +119,85 @@ namespace Tesis003.BaseDatos
             sentenciaSQL.Parameters.AddWithValue("@Cargo", personalParametro.cargo);
             sentenciaSQL.Parameters.AddWithValue("@Usuario", personalParametro.usuario);
             sentenciaSQL.Parameters.AddWithValue("@Contrasena", personalParametro.contrasena);
+
+            this.conexion.ComandoModificacion(sentenciaSQL);
+        }
+
+        public PersonalModel obtenerInformacionPersonalServicio(int identificador)
+        {
+            PersonalModel usuarioResultado = new PersonalModel();
+
+            string sentenciaSql = "SELECT TOP(1) PersonalID, Nombre, Cedula, Telefono ,Cargo " +
+                                  "FROM Personal " +
+                                  $"WHERE PersonalID = {identificador} ";
+
+            DataTable tablaDatos = this.conexion.ComandoConsulta(sentenciaSql);
+
+            usuarioResultado.identificador = tablaDatos.Rows[0].Field<int>("PersonalID");
+            usuarioResultado.nombre = tablaDatos.Rows[0].Field<string>("Nombre");
+            usuarioResultado.cedula = tablaDatos.Rows[0].Field<string>("Cedula");
+            usuarioResultado.telefono = tablaDatos.Rows[0].Field<string>("Telefono");
+            usuarioResultado.cargo = tablaDatos.Rows[0].Field<int>("Cargo");
+
+            List<ServicioModel> listaPersonalServicioResultado = new List<ServicioModel>();
+
+            sentenciaSql = "SELECT ServicioID, PersonalID, Detalle, Valor " +
+                           "FROM Servicio " +
+                           $"WHERE PersonalID = {identificador} ";
+
+            tablaDatos = this.conexion.ComandoConsulta(sentenciaSql);
+
+            for (int i = 0; i < tablaDatos.Rows.Count; i++)
+            {
+                ServicioModel servicioResultado = new ServicioModel();
+                servicioResultado.identificador = tablaDatos.Rows[i].Field<int>("ServicioID");
+                servicioResultado.identificadorPersonal = tablaDatos.Rows[i].Field<int>("PersonalID");
+                servicioResultado.detalle = tablaDatos.Rows[i].Field<string>("Detalle");
+                servicioResultado.valor = tablaDatos.Rows[i].Field<decimal>("Valor");
+
+                listaPersonalServicioResultado.Add(servicioResultado);
+            }
+
+            usuarioResultado.servicios = listaPersonalServicioResultado;
+
+            return usuarioResultado;
+        }
+
+        public void ingresarServicio(ServicioModel servicioParametro)
+        {
+            string sql = "INSERT INTO SERVICIO (PersonalID, Detalle, Valor) " +
+                         "VALUES (@PersonalID, @Detalle, @Valor)";
+            SqlCommand sentenciaSQL = new SqlCommand(sql);
+
+            sentenciaSQL.Parameters.AddWithValue("@PersonalID", servicioParametro.identificadorPersonal);
+            sentenciaSQL.Parameters.AddWithValue("@Detalle", servicioParametro.detalle);
+            sentenciaSQL.Parameters.AddWithValue("@Valor", servicioParametro.valor);
+
+            this.conexion.ComandoModificacion(sentenciaSQL);
+        }
+
+        public void actualizarServicio(ServicioModel servicioParametro)
+        {
+            string sql = "UPDATE SERVICIO " +
+                         "SET Detalle = @Detalle, Valor = @Valor " +
+                         "WHERE ServicioID = @ServicioID";
+            SqlCommand sentenciaSQL = new SqlCommand(sql);
+
+            sentenciaSQL.Parameters.AddWithValue("@ServicioID", servicioParametro.identificador);
+            sentenciaSQL.Parameters.AddWithValue("@Detalle", servicioParametro.detalle);
+            sentenciaSQL.Parameters.AddWithValue("@Valor", servicioParametro.valor);
+
+            this.conexion.ComandoModificacion(sentenciaSQL);
+        }
+
+        public void eliminarServicio(ServicioModel servicioParametro)
+        {
+            string sql = "DELETE " +
+                         "FROM SERVICIO " +
+                         "WHERE ServicioID = @ServicioID";
+            SqlCommand sentenciaSQL = new SqlCommand(sql);
+
+            sentenciaSQL.Parameters.AddWithValue("@ServicioID", servicioParametro.identificador);
 
             this.conexion.ComandoModificacion(sentenciaSQL);
         }

@@ -23,7 +23,7 @@ namespace Tesis003.Controllers
 
         [HttpPost]
         public ActionResult IngresarPersonal(PersonalModel usuarioParametro)
-        {
+        {            
             if (!string.IsNullOrEmpty(usuarioParametro.nombre) && !string.IsNullOrEmpty(usuarioParametro.cedula) && !string.IsNullOrEmpty(usuarioParametro.telefono) && !string.IsNullOrEmpty(usuarioParametro.usuario) && !string.IsNullOrEmpty(usuarioParametro.contrasena) && usuarioParametro.cargo > 0)
             {
                 usuarioBD.ingresarPersonal(usuarioParametro);
@@ -47,14 +47,45 @@ namespace Tesis003.Controllers
             return View(personal);
 		}
 
-		public ActionResult ActualizarPersonal()
+        [HttpPost]
+        public ActionResult ActualizarPersonalProceso(PersonalModel personalParametro)
 		{
-			return View();
+            ViewData["cargos"] = informacionBD.obtenerInformacionParametro("cargo");
+            usuarioBD.actualizarPersonal(personalParametro);
+            PersonalModel personal = usuarioBD.obtenerInformacionUsuario(personalParametro.identificador);
+            return View("ActualizarPersonal", personal);
+        }
+
+		public ActionResult GestionarServiciosPersonal(PersonalModel personalParametro)
+		{
+            PersonalModel personal = usuarioBD.obtenerInformacionPersonalServicio(personalParametro.identificador);
+            ViewData["cargos"] = informacionBD.obtenerInformacionParametro("cargo");
+            return View(personal);
 		}
 
-		public ActionResult GestionarServiciosPersonal()
-		{
-			return View();
-		}
-	}
+        public ActionResult IngresarServiciosPersonal(ServicioModel servicioParametro)
+        {
+            usuarioBD.ingresarServicio(servicioParametro);
+            PersonalModel personal = usuarioBD.obtenerInformacionPersonalServicio(servicioParametro.identificadorPersonal);
+            ViewData["cargos"] = informacionBD.obtenerInformacionParametro("cargo");
+            return View("GestionarServiciosPersonal", personal);
+        }
+
+        public ActionResult ActualizarServiciosPersonal(ServicioModel servicioParametro)
+        {
+            usuarioBD.actualizarServicio(servicioParametro);
+            PersonalModel personal = usuarioBD.obtenerInformacionPersonalServicio(servicioParametro.identificadorPersonal);
+            ViewData["cargos"] = informacionBD.obtenerInformacionParametro("cargo");
+            return View("GestionarServiciosPersonal", personal);
+        }
+
+        public ActionResult EliminarServiciosPersonal(ServicioModel servicioParametro)
+        {
+            usuarioBD.eliminarServicio(servicioParametro);
+            PersonalModel personal = usuarioBD.obtenerInformacionPersonalServicio(servicioParametro.identificadorPersonal);
+            ViewData["cargos"] = informacionBD.obtenerInformacionParametro("cargo");
+            return View("GestionarServiciosPersonal", personal);
+        }
+
+    }
 }

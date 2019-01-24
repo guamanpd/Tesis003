@@ -1,54 +1,131 @@
 ﻿
+@model Tesis003.Models.PersonalModel
 @{
-	ViewBag.Title = "GestionarServiciosMedicos";
-	Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "GestionarServiciosMedicos";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
 
 <h2 style="text-align:center">Gestion Servicios</h2>
-<br />
-
-<div class="row">
-	<div class="col-xl-6">
-		<p>
-			<label>Detalle</label>
-			<br />
-			<input name="NombreServicio" class="col-xl" style="text-align:left; border-radius:0.3rem; width:100%; height:40px;">
-		</p>
-	</div>
-	<div class="col-xl-3">
-		<p>
-			<label>Valor</label>
-			<br />
-			<input name="ValorServicio" class="col-xl required number" style="text-align:left; border-radius:0.3rem; width:100%; height:40px;" />
-		</p>
-	</div>
-	<div class="col-xl-3">
-		<p>
-			<label></label>
-			<br />
-			<button name="Btn" value="ingresar" style="background-color:darkturquoise; border-bottom-color:darkturquoise;color:white; border-radius:0.3rem; width:200px; height:40px; cursor: pointer" type="submit" onclick="validarFormularioSimple()">Ingresar Servicio</button>
-		</p>
-	</div>
-</div>
 <div>
-	<p>
-		<table class="table">
-			<tr>
-				<th scope="col">Detalle</th>
-				<th scope="col">Valor</th>
-			</tr>
-			<tr>
-				<td scope="col">NombreServicio</td>
-				<td scope="col">ValorServicio</td>
-				<td scope="col">
-					<button style="background-color:darkturquoise; border-bottom-color:darkturquoise;color:white; border-radius:0.3rem; width:35px; height:30px; cursor: pointer" type="submit">
-						<i class="fas fa-eye"></i>
-					</button>
-				</td>
-			</tr>
-		</table>
-	</p>
+    <div class="row">
+        <div class="col-xl-6">
+            <p>
+                <label>Nombre Completo</label>
+                <br />
+                <input name="Nombre" class="col-xl required" style="text-align:left; border-radius:0.3rem; width:100%; height:40px;" value="@Model.nombre" disabled/>
+            </p>
+        </div>
+        <div class="col-xl-3">
+            <p>
+                <label>Cedula</label>
+                <br />
+                <input id="Cedula" name="Cedula" class="col-xl required number" style="text-align:left; border-radius:0.3rem; width:100%; height:40px;" value="@Model.cedula" disabled/>
+                <label id="salida" name="ValidacionCedula" />
+            </p>
+        </div>
+        <div class="col-xl-3">
+            <p>
+                <label>Telefono</label>
+                <br />
+                <input name="Telefono" class="col-xl required number" style="text-align:left; border-radius:0.3rem; width:100%; height:40px;" value="@Model.telefono" disabled/>
+            </p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xl-3">
+            <p>
+                <label>Cargo</label>
+                <br />
+                <select name="Cargo" class="col-xl required" style="text-align:left; border-radius:0.3rem; width:100%; height:40px;" disabled>
+                    <option> ----- </option>
+                    @{
+                        var cargos = ViewData["cargos"] as List<Tesis003.Models.ParametroModel>;
+                        foreach (var cargo in cargos)
+                        {
+                            if (Model.cargo == cargo.identificador)
+                            {
+                                <option value="@cargo.identificador" selected>@cargo.valor</option>
+                            }
+                            else
+                            {
+                                <option value="@cargo.identificador">@cargo.valor</option>
+                            }
+                        }
+                    }
+                </select>
+            </p>
+        </div>
+    </div>
 </div>
+<br />
+<form id="IngresarServicio" action="IngresarServiciosPersonal" method="post">
+    <div class="row">
+        <input name="IdentificadorPersonal" value="@Model.identificador" hidden />
+        <div class="col-xl-6">
+            <p>
+                <label>Detalle</label>
+                <br />
+                <input name="Detalle" class="col-xl required" style="text-align:left; border-radius:0.3rem; width:100%; height:40px;">
+            </p>
+        </div>
+        <div class="col-xl-3">
+            <p>
+                <label>Valor</label>
+                <br />
+                <input name="Valor" class="col-xl required number" style="text-align:left; border-radius:0.3rem; width:100%; height:40px;" />
+            </p>
+        </div>
+        <div class="col-xl-3">
+            <p>
+                <label></label>
+                <br />
+                <button name="Btn" style="background-color:darkturquoise; border-bottom-color:darkturquoise;color:white; border-radius:0.3rem; width:200px; height:40px; cursor: pointer" type="submit" onclick="validarFormularioSimple()">Ingresar Servicio</button>
+            </p>
+        </div>
+    </div>
 </form>
+<div>
+    <table class="table">
+        <tr>
+            <th scope="col">Detalle</th>
+            <th scope="col">Valor</th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+        </tr>                
+        @{
+            var servicios = Model.servicios;
+            foreach (var servicio in servicios)
+            {
+                <tr>
+                    <td scope="col">@servicio.detalle</td>
+                    <td scope="col">
+                        <form action="ActualizarServiciosPersonal" method="post">
+                            <input name="IdentificadorPersonal" value="@Model.identificador" hidden />
+                            <input name="Detalle" value="@servicio.detalle" hidden />
+                            <div class="row">
+                                <div class="col-2">
+                                    <input name="Valor" value="@servicio.valor" class="col-xl required number" style="text-align:left; border-radius:0.3rem; width:100%; height:40px;" />
+                                </div>
+                                <div class="col-2">
+                                    <button name="Identificador" value="@servicio.identificador" style="background-color:darkturquoise; border-bottom-color:darkturquoise;color:white; border-radius:0.3rem; width:35px; height:30px; cursor: pointer" type="submit">
+                                        <i class="fas fa-plus-square"></i>
+                                    </button>
+                                </div>
+                            </div>                                                       
+                        </form>
+                    </td>
+                    <td scope="col">
+                        <form action="EliminarServiciosPersonal" method="post">
+                            <input name="IdentificadorPersonal" value="@Model.identificador" hidden />
+                            <button name="Identificador" value="@servicio.identificador" style="background-color:darkturquoise; border-bottom-color:darkturquoise;color:white; border-radius:0.3rem; width:35px; height:30px; cursor: pointer" type="submit">
+                                <i class="fas fa-plus-square"></i>
+                            </button>
+                        </form>
+                    </td>
+                </tr>
+            }
+        }                
+    </table>
+</div>

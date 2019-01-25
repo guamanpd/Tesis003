@@ -46,5 +46,18 @@ namespace Tesis003.BaseDatos
 
             return listaParametroResultado;
         }
+
+        //Funcion para obtener el siguiente numero de Historia Clinica
+        public int obtenerSiguienteNumeroHistoriaClinica()
+        {
+            string sentenciaSql = "SELECT max(NumHistoriaClinica) as NumHistoriaClinica " +
+                                  "FROM Paciente";
+
+            DataTable tablaDatos = this.conexion.ComandoConsulta(sentenciaSql);
+
+            int siguienteNumeroHistoriaCLinica = tablaDatos.Rows[0].Field<int>("NumHistoriaClinica") + 1;
+
+            return siguienteNumeroHistoriaCLinica;
+        }
     }
 }

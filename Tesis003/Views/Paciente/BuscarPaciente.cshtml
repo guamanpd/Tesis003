@@ -1,4 +1,4 @@
-﻿
+﻿@model List<Tesis003.Models.PacienteModel>
 @{
 	ViewBag.Title = "ListarPaciente";
 	Layout = "~/Views/Shared/_Layout.cshtml";
@@ -38,22 +38,35 @@
 	</div>
 <br />
 <table class="table">
-	<tr>
-		<th scope="col">Paciente</th>
-		<th scope="col">Historia Cl&iacute;nica</th>
-		<th scope="col">C&eacute;dula</th>
-		<th scope="col"></th>
-	</tr>
-	<tr>
-		<td scope="col"></td>
-		<td scope="col"></td>
-		<td scope="col"></td>
-		<td scope="col">
-			<button name="idPaciente" style="background-color:darkturquoise; border-bottom-color:darkturquoise;color:white; border-radius:0.3rem; width:35px; height:30px; cursor: pointer" type="submit">
-				<i class="fas fa-eye"></i>
-			</button>
-		</td>
-	</tr>
+    <tr>
+        <th scope="col">Paciente</th>
+        <th scope="col">Historia Cl&iacute;nica</th>
+        <th scope="col">C&eacute;dula</th>
+        <th scope="col"></th>
+    </tr>
+    @foreach (var paciente in Model)
+    {
+        <tr>
+            <td scope="col">@paciente.nombreCompleto</td>
+            <td scope="col">@paciente.numHistoriaClinica</td>
+            <td scope="col">@paciente.cedula</td>
+            <td scope="col">
+                <form action="MostrarPaciente" method="post">
+                    <button name="Identificador" value="@paciente.identificador" style="background-color:darkturquoise; border-bottom-color:darkturquoise;color:white; border-radius:0.3rem; width:35px; height:30px; cursor: pointer" type="submit">
+                        <i class="fas fa-eye"></i>
+                    </button>
+                </form>
+            </td>
+            <td scope="col">
+                <form action="ActualizarPaciente" method="post">
+                    <button name="Identificador" value="@paciente.identificador" style="background-color:darkturquoise; border-bottom-color:darkturquoise;color:white; border-radius:0.3rem; width:35px; height:30px; cursor: pointer" type="submit">
+                        <i class="fas fa-eye"></i>
+                    </button>
+                </form>
+            </td>
+        </tr>
+    }
+
 </table>
 
 

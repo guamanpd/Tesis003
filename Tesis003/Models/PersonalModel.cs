@@ -13,31 +13,34 @@ namespace Tesis003.Models
     **********/
     public class PersonalModel
     {
-        //Nombre del usuario
+        //Nombre del personal
         public string usuario { get; set; }
 
-        //Contrasena del usuario
+        //Contrasena del personal
         public string contrasena { get; set; }
 
-        //Identificardor del cargo del usuario
+        //Identificardor del cargo del personal
         public int cargo { get; set; }
 
-        //Nombre del cargo del usuario
+        //Nombre del cargo del personal
         public string cargoNombre { get; set; }
 
-        //Identificador del usuario
+        //Identificador del personal
         public int identificador { get; set; }
 
-        //Nombre del usuario
+        //Nombre del personal
         public string nombre { get; set; }
 
-        //Cedula del usuario
+        //Cedula del personal
         public string cedula { get; set; }
 
-        //Telefono del usuario
+        //Telefono del personal
         public string telefono { get; set; }
-        
-        //Especialidad del usuario
+
+        //Especialidad del personal
         public int especialidad { get; set; }
+
+        //Servicios del personal
+        public List<ServicioModel> servicios { get; set; }
     }
 }

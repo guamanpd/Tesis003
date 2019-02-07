@@ -8,7 +8,7 @@ using Tesis003.Models;
 namespace Tesis003.BaseDatos
 {
     /**********
-    * Objeto utilziada para consultar los datos del usuario y almacenarlos en un objeto UsuarioModel
+    * Objeto utilizado para consultar los datos de la tabla parametros, se los retorna en un objeto ParametroModel
     * Base: DBVACARI
     * Tabla: Parametro
     **********/
@@ -24,7 +24,7 @@ namespace Tesis003.BaseDatos
 
         }
 
-        //Funcion para obtener el identificardor y el valor del parametro de la base datos, los retorna en una lista de objetos ParametroModel
+        //Funcion para obtener el identificardor y el valor del parametro de la base datos y los retorna en una lista de objetos ParametroModel
         public List<ParametroModel> obtenerInformacionParametro(string tipo)
         {
             List<ParametroModel> listaParametroResultado = new List<ParametroModel>();
@@ -45,6 +45,19 @@ namespace Tesis003.BaseDatos
             }
 
             return listaParametroResultado;
+        }
+
+        //Funcion para obtener el siguiente numero de Historia Clinica
+        public int obtenerSiguienteNumeroHistoriaClinica()
+        {
+            string sentenciaSql = "SELECT max(NumHistoriaClinica) as NumHistoriaClinica " +
+                                  "FROM Paciente";
+
+            DataTable tablaDatos = this.conexion.ComandoConsulta(sentenciaSql);
+
+            int siguienteNumeroHistoriaCLinica = tablaDatos.Rows[0].Field<int>("NumHistoriaClinica") + 1;
+
+            return siguienteNumeroHistoriaCLinica;
         }
     }
 }

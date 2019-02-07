@@ -246,6 +246,15 @@
     <Content Include="Views\HistoriaClinica\Consulta.cshtml" />
     <Content Include="Views\HistoriaClinica\Diagnostico.cshtml" />
     <Content Include="Views\Personal\GestionarServiciosPersonal.cshtml" />
+    <Content Include="Views\HistoriaClinica\Odontograma.cshtml" />
+    <Content Include="Views\HistoriaClinica\ListarConsultasPrevias.cshtml" />
+    <Content Include="Views\HistoriaClinica\MostrarConsultaPrevia.cshtml" />
+    <Content Include="Views\HistoriaClinica\ConsultaSubsecuente.cshtml" />
+    <Content Include="Views\HistoriaClinica\ListaSignosVitales.cshtml" />
+    <Content Include="Views\HistoriaClinica\MostrarPeso.cshtml" />
+    <Content Include="Views\HistoriaClinica\MostrarTalla.cshtml" />
+    <Content Include="Views\HistoriaClinica\MostrarIndiceMasaCorporal.cshtml" />
+    <Content Include="Views\HistoriaClinica\MostrarCertificadoMedico.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

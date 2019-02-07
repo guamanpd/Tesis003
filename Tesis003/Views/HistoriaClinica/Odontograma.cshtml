@@ -1,0 +1,106 @@
+﻿
+@{
+	ViewBag.Title = "Odontograma";
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+
+<h2 class="text-center">Historia Clinica</h2>
+<br />
+<h3>Odontograma</h3>
+<div class="row">
+	<div class="col-xl-2">
+		<label>Pieza</label>
+		<br />
+		<select style="text-align:left; border-radius:0.3rem; width:100%; height:40px;">
+			<option> ----- </option>
+			<option> 18 </option>
+			<option> 17 </option>
+		</select>
+	</div>
+	<div class="col-xl-2">
+		<label>Cara</label>
+		<br />
+		<select style="text-align:left; border-radius:0.3rem; width:100%; height:40px;">
+			<option> ----- </option>
+			<option> Vesticular </option>
+			<option> Oclusal </option>
+		</select>
+	</div>
+</div>
+<div class="row">
+	<div class="col-xl-4">
+		<label>Diagnostico</label>
+		<br />
+		<input class="col-xl" style="text-align:left; border-radius:0.3rem; width:100%; height:40px;" />
+	</div>
+	<div class="col-xl-2">
+		<label>CIE-10</label>
+		<br />
+		<input class="col-xl" style="text-align:left; border-radius:0.3rem; width:100%; height:40px;" />
+	</div>
+	<div class="col-xl-4">
+		<label>Procedimiento</label>
+		<br />
+		<input class="col-xl" style="text-align:left; border-radius:0.3rem; width:100%; height:40px;" />
+	</div>
+</div>
+<br />
+<div class="text-center">
+	<button style="background-color:darkturquoise; border-bottom-color:darkturquoise;color:white; border-radius:0.3rem; width:200px; height:40px; cursor: pointer">Ingresar</button>
+</div>
+<br />
+<div class="table-responsive">
+	<table class="table">
+		<tr>
+			<th scope="col">Diagnostico</th>
+			<th scope="col">CIE-10</th>
+			<th scope="col">Procedimiento</th>
+			<th scope="col">Pieza</th>
+			<th scope="col">Cara</th>
+			<th scope="col"></th>
+		</tr>
+		<tr>
+			<td>AAAA</td>
+			<td>AA99</td>
+			<td>AAAA</td>
+			<td>00</td>
+			<td>AAAA</td>
+			<td>
+				<button style="background-color:darkturquoise; border-bottom-color:darkturquoise;color:white; border-radius:0.3rem; width:35px; height:30px; cursor: pointer" type="submit">
+					<i class="fas fa-trash-alt"></i>
+				</button>
+			</td>
+		</tr>
+	</table>
+</div>
+<div class="row">
+	<div class="col-xl-4">
+		<label>Enfermedad Periodontal</label> <br />
+		<input type="checkbox" name="EnfermedadPeriodontal" value="MateriaAlba" /> Materia Alba <br>
+		<input type="checkbox" name="EnfermedadPeriodontal" value="PlacaBacteriana" /> Placa Bacteriana <br>
+		<input type="checkbox" name="EnfermedadPeriodontal" value="CalculosSuperficial" /> Calculos Superficial <br>
+		<input type="checkbox" name="EnfermedadPeriodontal" value="CalculosSubgingival" /> Calculos Subgingival <br>
+		<input type="checkbox" name="EnfermedadPeriodontal" value="BolsaPeriodontal" /> Bolsa Periodontal <br>
+	</div>
+	<div class="col-xl-4">
+		<label>Endodoncia</label><br />
+		<input type="checkbox" name="Endodoncia" value="Hiperhamia" /> Hiperhamia <br>
+		<input type="checkbox" name="Endodoncia" value="PulptisIncip" /> Pulptis Incip <br>
+		<input type="checkbox" name="Endodoncia" value="PulptisTotal" /> Pulptis Total <br>
+		<input type="checkbox" name="Endodoncia" value="Paraendodoncia" /> Paraendodoncia <br>
+		<input type="checkbox" name="Endodoncia" value="RarefDifusa" /> Raref Difusa <br>
+	</div>
+	<div class="col-xl-4">
+		<label>Oclusion</label><br />
+		<input type="checkbox" name="Oclusion" value="ManuclusionDentaria" /> Manuclusion Dentaria <br>
+		<input type="checkbox" name="Oclusion" value="ManuclusionDentaria" /> Manuclusion Maxilar <br>
+	</div>
+</div>
+<br />
+<div class="text-center">
+	<button style="background-color:darkturquoise; border-bottom-color:darkturquoise;color:white; border-radius:0.3rem; width:200px; height:40px; cursor: pointer">Guardar</button>
+	<button style="background-color:darkturquoise; border-bottom-color:darkturquoise;color:white; border-radius:0.3rem; width:200px; height:40px; cursor: pointer">Siguiente</button>
+</div>
+

@@ -1,0 +1,63 @@
+﻿
+@{
+	ViewBag.Title = "ListarConsultasPrevias";
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+
+<p><h2 style="text-align:center">Lista Atenciones Previas</h2></p>
+
+<div class="row">
+	<div class="col-xl-2">
+		<p>
+			<input name="tipoParametro" type="radio" value="Nombre" /> Especialidad
+		</p>
+	</div>
+	<div class="col-xl-2">
+		<p>
+			<input name="tipoParametro" type="radio" value="Cedula" /> Fecha
+		</p>
+	</div>
+</div>
+
+<div class="row">
+	<div class="col-xl-6">
+		<p>
+			<input name="parametroBusqueda" class="col-xl" style=" text-transform: uppercase;text-align:left; border-radius:0.3rem; width:100%; height:40px;" />
+		</p>
+	</div>
+	<div class="col-xl-3">
+		<button style="background-color:darkturquoise; border-bottom-color:darkturquoise;color:white; border-radius:0.3rem; width:200px; height:40px; cursor: pointer">BUSCAR</button>
+	</div>
+</div>
+<br />
+<table class="table">
+	<tr>
+		<th scope="col">Fecha de consulta</th>
+		<th scope="col">Motivo de consulta</th>
+		<th scope="col">Especialidad</th>
+		<th scope="col"></th>
+		<th scope="col"></th>
+	</tr>
+	<tr>
+		<td scope="col">DD/MM/AAAA</td>
+		<td scope="col">AAAAAAAAAAAAAAAAAA</td>
+		<td scope="col">AAAAAAAAA</td>
+		<td scope="col">
+			<button name="idPaciente" style="background-color:darkturquoise; border-bottom-color:darkturquoise;color:white; border-radius:0.3rem; width:35px; height:30px; cursor: pointer" type="submit">
+				<i class="fas fa-eye"></i>
+			</button>
+		</td>
+		<td scope="col">
+			<button style="background-color:darkturquoise; border-bottom-color:darkturquoise;color:white; border-radius:0.3rem; width:35px; height:30px; cursor: pointer" type="submit">
+				<i class="fas fa-trash-alt"></i>
+			</button>
+		</td>
+	</tr>
+</table>
+<div class="text-center">
+	<button style="background-color:darkturquoise; border-bottom-color:darkturquoise;color:white; border-radius:0.3rem; width:200px; height:40px; cursor: pointer">Regresar</button>
+</div>
+
+

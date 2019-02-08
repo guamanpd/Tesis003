@@ -32,11 +32,12 @@ namespace Tesis003.Controllers
         [HttpPost]
         public ActionResult Ingreso(PersonalModel usuarioParametro)
         {
-            /*UsuarioModel usuarioIngreso = usuarioBD.obtenerInformacionIngreso(usuarioParametro.usuario);
+            /*PersonalModel usuarioIngreso = usuarioBD.obtenerInformacionIngreso(usuarioParametro.usuario);
             if (!string.IsNullOrEmpty(usuarioParametro.usuario) && !string.IsNullOrEmpty(usuarioParametro.contrasena) && usuarioIngreso.contrasena.Equals(usuarioParametro.contrasena))
             {
                 Session["identificado"] = "true";
                 Session["cargo"]= usuarioIngreso.cargo.ToString();
+                Session["usuario"] = usuarioIngreso.usuario;
                 return RedirectToAction("Presentacion", "Ingreso");
             }
             else
@@ -46,6 +47,7 @@ namespace Tesis003.Controllers
 
             Session["identificado"] = "true";
             Session["cargo"] = "17";
+            Session["usuario"] = "prueba";
             return RedirectToAction("Presentacion", "Ingreso");
         }
 
@@ -66,6 +68,7 @@ namespace Tesis003.Controllers
         {
             Session["identificado"] = "false";
             Session["cargo"] = "";
+            Session["usuario"] = "";
             return RedirectToAction("Ingreso", "Ingreso");
         }
     }

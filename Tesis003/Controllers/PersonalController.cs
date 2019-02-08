@@ -17,8 +17,16 @@ namespace Tesis003.Controllers
         [HttpGet]
         public ActionResult IngresarPersonal()
         {
-            ViewData["cargos"] = informacionBD.obtenerInformacionParametro("cargo");
-            return View();
+            if (Session["cargo"].Equals("17"))
+            {
+                ViewData["cargos"] = informacionBD.obtenerInformacionParametro("cargo");
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("Presentacion","Ingreso");
+            }
+            
         }
 
         [HttpPost]

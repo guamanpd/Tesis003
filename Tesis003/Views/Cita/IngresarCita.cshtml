@@ -1,103 +1,136 @@
-﻿
+﻿@using Tesis003.Models
+@model Tesis003.Models.CitaPacienteModel
 @{
-	ViewBag.Title = "IngresarCita";
-	Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "IngresarCita";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <h2 style="text-align:center">Ingresar Cita M&eacute;dica</h2>
 <br />
 
 <div class="row">
-	<div class="col-xl-6">
-		<p>
-			<label>Nombre</label>
-			<br />
-			<input style="text-transform:uppercase; text-align:left; border-radius:0.3rem; width:100%; height:40px;"/>
-		</p>
-	</div>
-	<div class="col-xl-3">
-		<p>
-			<label>Cedula</label>
-			<br />
-			<input style="text-align:left; border-radius:0.3rem; width:100%; height:40px;"/>
-		</p>
-	</div>
-	<div class="col-xl-3">
-		<p>
-			<label>Nº Historia Clinica</label>
-			<br />
-			<input style="text-align:left; border-radius:0.3rem; width:100%; height:40px;"/>
-		</p>
-	</div>
+    <div class="col-xl-6">
+        <p>
+            <label>Nombre</label>
+            <br />
+            <input style="text-transform:uppercase; text-align:left; border-radius:0.3rem; width:100%; height:40px;" value="@Model.paciente.nombreCompleto" disabled />
+        </p>
+    </div>
+    <div class="col-xl-3">
+        <p>
+            <label>Cedula</label>
+            <br />
+            <input style="text-align:left; border-radius:0.3rem; width:100%; height:40px;" value="@Model.paciente.cedula" disabled />
+        </p>
+    </div>
+    <div class="col-xl-3">
+        <p>
+            <label>Nº Historia Clinica</label>
+            <br />
+            <input style="text-align:left; border-radius:0.3rem; width:100%; height:40px;" value="@Model.paciente.numHistoriaClinica" disabled />
+        </p>
+    </div>
 </div>
-	<div class="row">
-		<div class="col-xl-3">
-			<p>
-				<label>Especialidad</label>
-				<br />
-				<select name="Especialidad" style="text-align:left; border-radius:0.3rem; width:100%; height:40px;">
-					<option value="especialidad a">PEDIATRIA</option>
-					<option value="especialidad b">MEDICINA GENERAL</option>
-					<option value="especialidad c">TRAHUMATOLOGO</option>
-				</select>
-			</p>
-		</div>
-		<div class="col-xl-3">
-			<p>
-				<label>Medico</label>
-				<br />
-				<select name="Medico" style="text-align:left; border-radius:0.3rem; width:100%; height:40px;">
-					<option value="medico a">MEDICO A</option>
-					<option value="medico b">MEDICO B</option>
-					<option value="medico c">MEDICO C</option>
-					<option value="medico d">MEDICO D</option>
-				</select>
-			</p>
-		</div>
-		<div class="col-xl-3">
-			<p>
-				<label>Tipo cita</label>
-				<br />
-				<select name="TipoCita" style="text-align:left; border-radius:0.3rem; width:100%; height:40px;">
-					<option value="cita a">CITA A</option>
-					<option value="cita b">CITA B</option>
-					<option value="cita c">CITA C</option>
-					<option value="cita d">CITA D</option>
-				</select>
-			</p>
-		</div>
-	</div>
 
-	<div class="text-center">
-		<button style="background-color:darkturquoise; border-bottom-color:darkturquoise;color:white; border-radius:0.3rem; width:200px; height:40px; cursor: pointer" type="submit">AGREGAR CITA</button>
-	</div>
+<form action="IngresarCitaProceso" method="post">
+    <div class="row">
+        <input name="IdentificadorPaciente" value="@Model.paciente.identificador" hidden/>
+        <div class="col-xl-3">
+            <p>
+                <label>Fecha</label>
+                <br />
+                <input name="Fecha" class="required" type="date" style="text-align:left; border-radius:0.3rem; width:100%; height:40px;" value="@DateTime.Now.ToString("yyyy-MM-dd")" />
+            </p>
+        </div>
+        <div class="col-xl-3">
+            <p>
+                <label>Especialidad</label>
+                <br />
+                <select name="Especialidad" style="text-align:left; border-radius:0.3rem; width:100%; height:40px;">
+                    <option> ----- </option>
+                    @{
+                        var especialidades = ViewData["especialidades"] as List<Tesis003.Models.ParametroModel>;
+                        foreach (var especialidad in especialidades)
+                        {
+                            <option value="@especialidad.identificador">@especialidad.valor</option>
+                        }
+                    }
+                </select>
+            </p>
+        </div>
+        <div class="col-xl-3">
+            <p>
+                <label>Medico</label>
+                <br />
+                <select name="IdentificadorPersonal" style="text-align:left; border-radius:0.3rem; width:100%; height:40px;">
+                    <option> ----- </option>
+                    @{
+                        var medicos = ViewData["medicos"] as List<Tesis003.Models.PersonalModel>;
+                        foreach (var medico in medicos)
+                        {
+                            <option value="@medico.identificador">@medico.nombre</option>
+                        }
+                    }
+                </select>
+            </p>
+        </div>
+        <div class="col-xl-3">
+            <p>
+                <label>Tipo cita</label>
+                <br />
+                <select name="TipoCita" style="text-align:left; border-radius:0.3rem; width:100%; height:40px;">
+                    <option> ----- </option>
+                    @{
+                        var tiposCita = ViewData["tiposCita"] as List<Tesis003.Models.ParametroModel>;
+                        foreach (var tipoCita in tiposCita)
+                        {
+                            <option value="@tipoCita.identificador">@tipoCita.valor</option>
+                        }
+                    }
+                </select>
+            </p>
+        </div>
+    </div>
+
+    <div class="text-center">
+        <button style="background-color:darkturquoise; border-bottom-color:darkturquoise;color:white; border-radius:0.3rem; width:200px; height:40px; cursor: pointer" type="submit">AGREGAR CITA</button>
+    </div>
+</form>
 
 <br />
-<p>
-	<table class="table">
-		<tr>
-			<th scope="col">Paciente</th>
-			<th scope="col">Historia Cl&iacute;nica</th>
-			<th scope="col">C&eacute;dula</th>
-			<th scope="col">Especialidad</th>
-			<th scope="col">Medico</th>
-			<th scope="col">Tipo cita</th>
-		</tr>
-		<tr>
-			<td>NombrePaciente</td>
-			<td>HistoriaClinicaPaciente</td>
-			<td>CedulaPaciente</td>
-			<td>Especialidad</td>
-			<td>Medico</td>
-			<td>TipoCita</td>
-		</tr>
-	</table>
-</p>
+<table class="table">
+    <tr>
+        <th scope="col">Fecha</th>
+        <th scope="col">Especialidad</th>
+        <th scope="col">Medico</th>
+        <th scope="col">Tipo cita</th>
+    </tr>
+    @{
+        var citas = Model.citaspaciente as List<Tesis003.Models.CitaModel>;
+        foreach (var cita in citas)
+        {
+    <tr>
+        <td>@cita.fecha.ToString("dd/MM/yyyy")</td>
+        <td>@cita.nombreCargo</td>
+        <td>@cita.nombrePersonal</td>
+        <td>@cita.nombreTipoCita</td>
+        <td>
+            <form action="EliminarCitaProceso" method="post">
+                <input name="IdentificadorPaciente" value="@Model.paciente.identificador" hidden />
+                <button name="Identificador" value="@cita.identificador" style="background-color:darkturquoise; border-bottom-color:darkturquoise;color:white; border-radius:0.3rem; width:35px; height:30px; cursor: pointer" type="submit">
+                    <i class="fas fa-plus-square"></i>
+                </button>
+            </form>
+        </td>
+    </tr>
+        }
+    }
+</table>
 
 <br />
 <div class="text-center">
-	<form action="../Paciente/Mostrar" method="post">
-		<button name="idPaciente" style="background-color:darkturquoise; border-bottom-color:darkturquoise;color:white; border-radius:0.3rem; width:200px; height:40px; cursor: pointer">MAS</button>
-	</form>
+    <form action="../Paciente/MostrarPaciente" method="post">
+        <button name="Identificador" value="@Model.paciente.identificador" style="background-color:darkturquoise; border-bottom-color:darkturquoise;color:white; border-radius:0.3rem; width:200px; height:40px; cursor: pointer">MAS</button>
+    </form>
 </div>
 

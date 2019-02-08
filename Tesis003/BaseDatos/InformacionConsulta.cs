@@ -59,5 +59,28 @@ namespace Tesis003.BaseDatos
 
             return siguienteNumeroHistoriaCLinica;
         }
+
+        //Funcion para obtener el identificardor y el nombre del medico de la base datos y los retorna en una lista de objetos PersonalModel
+        public List<PersonalModel> obtenerListaMedico()
+        {
+            List<PersonalModel> listaMediocoResultado = new List<PersonalModel>();
+
+            string sentenciaSql = "SELECT PersonalID, Nombre " +
+                                  "FROM Personal "+
+                                  "WHERE Cargo = 21 ";
+
+            DataTable tablaDatos = this.conexion.ComandoConsulta(sentenciaSql);
+
+            for (int i = 0; i < tablaDatos.Rows.Count; i++)
+            {
+                PersonalModel personalResultado = new PersonalModel();
+                personalResultado.identificador = tablaDatos.Rows[i].Field<int>("PersonalID");
+                personalResultado.nombre = tablaDatos.Rows[i].Field<string>("Nombre").Replace("_", " ");
+
+                listaMediocoResultado.Add(personalResultado);
+            }
+
+            return listaMediocoResultado;
+        }
     }
 }

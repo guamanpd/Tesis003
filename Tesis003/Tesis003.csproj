@@ -121,6 +121,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="BaseDatos\ConexionBD.cs" />
+    <Compile Include="BaseDatos\CitaConsulta.cs" />
     <Compile Include="BaseDatos\PacienteConsulta.cs" />
     <Compile Include="BaseDatos\InformacionConsulta.cs" />
     <Compile Include="BaseDatos\PersonalConsulta.cs" />
@@ -138,8 +139,10 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\CitaPacienteModel.cs" />
     <Compile Include="Models\ParametroModel.cs" />
     <Compile Include="Models\PacienteModel.cs" />
+    <Compile Include="Models\CitaModel.cs" />
     <Compile Include="Models\ServicoModel.cs" />
     <Compile Include="Models\PersonalModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

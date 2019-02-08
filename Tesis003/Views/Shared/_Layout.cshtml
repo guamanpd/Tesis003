@@ -47,8 +47,7 @@
 				        Cita
 			        </a>
 			        <div class="dropdown-menu" aria-labelledby="menuCita">
-				        <a class="dropdown-item" href="../Cita/Listar">Listar</a>
-				        <a class="dropdown-item" href="../Cita/Ingresar">Ingresar</a>
+				        <a class="dropdown-item" href="../Cita/ListarCita">Listar</a>
 			        </div>
 		        </li>
 		    }
@@ -154,6 +153,7 @@
 		</ul>
 		@if (Session["identificado"].Equals("true"))
 	{
+        <a class="navbar-brand" href="">@Session["usuario"]</a>
 		<a class="navbar-brand" href="../Ingreso/Salir">SALIR</a>
 	}
 	</div>
@@ -165,7 +165,7 @@
 		@RenderBody()
 		<hr />
 		<footer>
-			<p>&copy; @DateTime.Now.Year - Mi aplicación ASP.NET</p>
+			<p>&copy; @DateTime.Now.Year - VACARI ASP.NET</p>
 		</footer>
 	</div>
 

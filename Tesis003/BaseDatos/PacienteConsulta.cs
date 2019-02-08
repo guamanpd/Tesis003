@@ -9,7 +9,7 @@ using Tesis003.Models;
 namespace Tesis003.BaseDatos
 {
     /**********
-    * Objeto utilizado para consultar los datos de la tabla paciente, se los retorna en un objeto ParametroModel
+    * Objeto utilizado para consultar los datos de la tabla paciente, se los retorna en un objeto PacienteModel
     * Base: DBVACARI
     * Tabla: Paciente
     **********/

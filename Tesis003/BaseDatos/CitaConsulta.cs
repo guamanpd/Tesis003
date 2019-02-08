@@ -94,7 +94,7 @@ namespace Tesis003.BaseDatos
         {
             List<CitaModel> listaCitaPacienteResultado = new List<CitaModel>();
 
-            string sentenciaSql = "SELECT cm.CitaMedicaID, pac.NombreCompleto as NombreCompletoPaciente, pac.Cedula as CedulaPaciente, cm.Fecha, par.Valor as NombreTipoCita, parm.Valor as NombreCargo, per.Nombre as NombrePersonal, cm.Pagado, cm.Atencion, cm.Enfermeria " +
+            string sentenciaSql = "SELECT cm.CitaMedicaID, pac.NombreCompleto as NombreCompletoPaciente, pac.Cedula as CedulaPaciente, pac.NumHistoriaClinica as NumHistoriaClinica, cm.Fecha, par.Valor as NombreTipoCita, parm.Valor as NombreCargo, per.Nombre as NombrePersonal, cm.Pagado, cm.Atencion, cm.Enfermeria " +
                                   "FROM CITAMEDICA cm INNER JOIN PERSONAL per " +
                                   "ON cm.PersonalID = per.PersonalID " +
                                   "INNER JOIN PARAMETRO par " +
@@ -111,6 +111,7 @@ namespace Tesis003.BaseDatos
             {
                 CitaModel citaResultado = new CitaModel();
                 citaResultado.identificador = tablaDatos.Rows[i].Field<int>("CitaMedicaID");
+                citaResultado.numHistoriaClinica = tablaDatos.Rows[i].Field<int>("NumHistoriaClinica");
                 citaResultado.fecha = tablaDatos.Rows[i].Field<DateTime>("Fecha");
                 citaResultado.nombreCompletoPaciente = tablaDatos.Rows[i].Field<string>("NombreCompletoPaciente");
                 citaResultado.nombreTipoCita = tablaDatos.Rows[i].Field<string>("NombreTipoCita").Replace("_", " ");

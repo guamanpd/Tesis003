@@ -19,6 +19,9 @@ namespace Tesis003.Models
         //Identificador del paciente
         public int identificadorPaciente { get; set; }
 
+        //Numero de historia clinica
+        public int numHistoriaClinica { get; set; }
+
         //Nombre del paciente
         public string nombreCompletoPaciente { get; set; }
 

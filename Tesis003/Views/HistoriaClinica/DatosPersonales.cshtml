@@ -6,6 +6,120 @@
 
 <h2 class="text-center">Historia Clinica</h2>
 <br />
+<div class="accordion" id="accordionHistoriaClinica">
+    <div class="card">
+        <div class="card-header" id="headingDatosPersonales">
+            <h3 class="mb-0">
+                <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#datosPersonales" aria-expanded="false" aria-controls="datosPersonales">
+                    Datos Personales
+                </button>
+            </h3>
+        </div>
+
+        <div id="datosPersonales" class="collapse" aria-labelledby="headingDatosPersonales" data-parent="#accordionHistoriaClinica">
+            <div class="card-body">
+                <div class="text-right">
+                    <p><label>Nº Historia Clinica</label></p>
+                    <input style="text-align:left; border-radius:0.3rem; width:250px; height:40px;" />
+                </div>
+                <br />
+                <div class="row">
+                    <div class="col-xl-6">
+                        <p>
+                            <label>Nombre Completo</label>
+                            <br />
+                            <input class="col-xl" style="text-align:left; border-radius:0.3rem; width:100%; height:40px;" />
+                        </p>
+                    </div>
+                    <div class="col-xl-3">
+                        <p>
+                            <label>Cedula</label>
+                            <br />
+                            <input class="col-xl" style="text-align:left; border-radius:0.3rem; width:100%; height:40px;" />
+                        </p>
+                    </div>
+                    <div class="col-xl-2">
+                        <p>
+                            <label>Fecha de nacimiento</label>
+                            <br />
+                            <input type="date" class="col-xl" style="text-align:left; border-radius:0.3rem; width:100%; height:40px;" />
+                        </p>
+                    </div>
+                    <div class="col-xl-1">
+                        <p>
+                            <label>Edad</label>
+                            <br />
+                            <input class="col-xl" style="text-align:left; border-radius:0.3rem; width:100%; height:40px;" />
+                        </p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xl-3">
+                        <p>
+                            <label>Lugar de Nacimiento</label>
+                            <br />
+                            <input class="col-xl" style="text-align:left; border-radius:0.3rem; width:100%; height:40px;" />
+                        </p>
+                    </div>
+                    <div class="col-xl-3">
+                        <p>
+                            <label>Etnia</label>
+                            <br />
+                            <input class="col-xl" style="text-align:left; border-radius:0.3rem; width:100%; height:40px;" />
+                        </p>
+                    </div>
+                    <div class="col-xl-2">
+                        <p>
+                            <label>Genero</label>
+                            <br />
+                            <input class="col-xl" style="text-align:left; border-radius:0.3rem; width:100%; height:40px;" />
+                        </p>
+                    </div>
+                    <div class="col-xl-2">
+                        <p>
+                            <label>Estado Civil</label>
+                            <br />
+                            <input class="col-xl" style="text-align:left; border-radius:0.3rem; width:100%; height:40px;" />
+                        </p>
+                    </div>
+                    <div class="col-xl-2">
+                        <p>
+                            <label>Tipo de Sangre</label>
+                            <br />
+                            <input class="col-xl" style="text-align:left; border-radius:0.3rem; width:100%; height:40px;" />
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card-header" id="headingAntecedentes">
+            <h3 class="mb-0">
+                <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#antecedentes" aria-expanded="false" aria-controls="antecedentes">
+                    Antecedentes
+                </button>
+            </h3>
+        </div>
+
+        <div id="antecedentes" class="collapse" aria-labelledby="headingAntecedentes" data-parent="#accordionHistoriaClinica">
+            <form>
+                <label>Personales</label>
+                <textarea class="col-xl-12" style="text-align:left; border-radius:0.3rem; width:100%; height:100%;" rows="4" cols="10"></textarea>
+                <br />
+                <br />
+                <label>Familiares</label>
+                <textarea class="col-xl-12" style="text-align:left; border-radius:0.3rem; width:100%; height:100%;" rows="4" cols="10"></textarea>
+                <br />
+                <br />
+                <label>Sociales</label>
+                <textarea class="col-xl-12" style="text-align:left; border-radius:0.3rem; width:100%; height:100%;" rows="4" cols="10"></textarea>
+                <br />
+                <br />
+                <label>Habitos</label>
+                <textarea class="col-xl-12" style="text-align:left; border-radius:0.3rem; width:100%; height:100%;" rows="4" cols="10"></textarea>
+            </form>
+        </div>
+    </div>
 <h3>Datos Personales</h3>
 <br />
 <div class="text-right">

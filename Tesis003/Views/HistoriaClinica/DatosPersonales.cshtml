@@ -119,7 +119,140 @@
                 <textarea class="col-xl-12" style="text-align:left; border-radius:0.3rem; width:100%; height:100%;" rows="4" cols="10"></textarea>
             </form>
         </div>
+
+        <div class="card-header" id="headingSignosVitales">
+            <h3 class="mb-0">
+                <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#signosVitales" aria-expanded="false" aria-controls="signosVitales">
+                    Signos Vitales
+                </button>
+            </h3>
+        </div>
+
+        <div id="signosVitales" class="collapse" aria-labelledby="headingSignosVitales" data-parent="#accordionHistoriaClinica">
+            <div class="table-responsive">
+                <table class="table">
+                    <tr>
+                        <th scope="col">Fecha</th>
+                        <th scope="col">Temperatura</th>
+                        <th scope="col">Precion Arterial</th>
+                        <th scope="col">FT</th>
+                        <th scope="col">FC</th>
+                        <th scope="col">Peso</th>
+                        <th scope="col">Talla</th>
+                        <th scope="col">Saturación</th>
+                    </tr>
+                    <tr>
+                        <td>99</td>
+                        <td>99</td>
+                        <td>99</td>
+                        <td>99</td>
+                        <td>99</td>
+                        <td>99</td>
+                        <td>99</td>
+                        <td>99</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <div class="card-header" id="headingConsulta">
+            <h3 class="mb-0">
+                <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#consulta" aria-expanded="false" aria-controls="consulta">
+                    Consulta
+                </button>
+            </h3>
+        </div>
+
+        <div id="consulta" class="collapse" aria-labelledby="headingConsulta" data-parent="#accordionHistoriaClinica">
+            <form>
+                <label>Motivo de colsulta</label>
+                <textarea class="col-xl-12" style="text-align:left; border-radius:0.3rem; width:100%; height:100%;" rows="2" cols="10"></textarea>
+                <br />
+                <label>Enfermedad Actual</label>
+                <textarea class="col-xl-12" style="text-align:left; border-radius:0.3rem; width:100%; height:100%;" rows="4" cols="10"></textarea>
+                <br />
+                <label>Revisión del Sistema</label>
+                <textarea class="col-xl-12" style="text-align:left; border-radius:0.3rem; width:100%; height:100%;" rows="4" cols="10"></textarea>
+                <br />
+                <label>Examen Físico</label>
+                <textarea class="col-xl-12" style="text-align:left; border-radius:0.3rem; width:100%; height:100%;" rows="4" cols="10"></textarea>
+            </form>
+        </div>
+
+        <div class="card-header" id="headingDiagnostico">
+            <h3 class="mb-0">
+                <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#diagnostico" aria-expanded="false" aria-controls="diagnostico">
+                    Diagnostico
+                </button>
+            </h3>
+        </div>
+
+        <div id="diagnostico" class="collapse" aria-labelledby="headingDiagnostico" data-parent="#accordionHistoriaClinica">
+            <form>
+                <div class="row">
+                    <div class="col-xl-6">
+                        <label>Enfermedad</label>
+                        <br />
+                        <input name="EnfermedadDiagnostico" class="col-xl" style="text-align:left; border-radius:0.3rem; width:100%; height:40px;" />
+                    </div>
+                    <div class="col-xl-1">
+                        <label>CIE-10</label>
+                        <br />
+                        <input name="CIE10Diagnostico" style="text-align:left; border-radius:0.3rem; width:100%; height:40px;" />
+                    </div>
+                    <div class="col-xl-2">
+                        <label>Tipo</label>
+                        <br />
+                        <select style="text-align:left; border-radius:0.3rem; width:100%; height:40px;">
+                            <option> ----- </option>
+                            <option> Definitivo </option>
+                            <option> Presuntivo </option>
+                        </select>
+                    </div>
+                    <div class="col-xl-3">
+                        <label>Reposo</label>
+                        <br />
+                        <input name="ReposoDiagnostico" style="text-align:left; border-radius:0.3rem; width:150px; height:40px;" />
+                        <label>días</label>
+                    </div>
+                </div>
+                <br />
+                <div class="text-center">
+                    <button style="background-color:darkturquoise; border-bottom-color:darkturquoise;color:white; border-radius:0.3rem; width:200px; height:40px; cursor: pointer">Ingresar</button>
+                </div>
+
+                <br />
+                <div class="table-responsive">
+                    <table class="table">
+                        <tr>
+                            <th scope="col">Enfermedad</th>
+                            <th scope="col">CIE-10</th>
+                            <th scope="col">Tipo</th>
+                            <th scope="col">Reposo</th>
+                            <th scope="col"></th>
+                        </tr>
+                        <tr>
+                            <td>AAAA</td>
+                            <td>AA99</td>
+                            <td>AAAA</td>
+                            <td>000</td>
+                            <td>
+                                <button style="background-color:darkturquoise; border-bottom-color:darkturquoise;color:white; border-radius:0.3rem; width:200px; height:40px; cursor: pointer">Certificado</button>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <br />
+                <label>Tratamiento</label>
+                <textarea class="col-xl-12" style="text-align:left; border-radius:0.3rem; width:100%; height:100%;" rows="4" cols="10"></textarea>
+            </form>
+        </div>
     </div>
+</div>
+
+<br/>
+<br/>
+
 <h3>Datos Personales</h3>
 <br />
 <div class="text-right">
